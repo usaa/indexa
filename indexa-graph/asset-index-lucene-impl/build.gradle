@@ -1,0 +1,11 @@
+description "asset index lucene impl"
+
+dependencies {
+	compile project(':graph-utils')
+	compile project(':asset-index-api')
+
+	testCompile "junit:junit:${junit_version}"
+	testCompile "pl.pragmatists:JUnitParams:${junit_params_version}"
+}
+
+

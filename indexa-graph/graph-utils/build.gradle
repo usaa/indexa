@@ -1,0 +1,19 @@
+description "graph utils"
+
+apply plugin: 'project-report'
+dependencies {
+    compile "commons-collections:commons-collections:${commons_collection_version}"
+    compile "commons-lang:commons-lang:${commons_lang_version}"
+    compile "commons-io:commons-io:${commons_io_version}"
+    compile "org.apache.lucene:lucene-core:${lucene_core_version}"
+    compile "org.apache.lucene:lucene-analyzers-common:${lucene_core_version}"
+    compile "com.google.code.gson:gson:${gson_version}"
+    compile "ch.qos.logback:logback-classic:${logback_version}"
+    
+    testCompile "junit:junit:${junit_version}"
+    testCompile "pl.pragmatists:JUnitParams:${junit_params_version}"
+
+}
+
+
+

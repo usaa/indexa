@@ -1,0 +1,5 @@
+description "asset index api"
+
+dependencies {
+	compile project(':graph-utils')
+}

@@ -1,0 +1,8 @@
+
+// ========================================
+// asset index
+// ========================================
+include 'asset-index-api'
+include 'asset-index-lucene-impl'
+include 'graph-utils'
+

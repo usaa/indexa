@@ -1,0 +1,123 @@
+description = "Asset Index Root"
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jfrog.buildinfo:build-info-extractor-gradle:4.4.5"
+    }
+}
+subprojects {
+    buildscript {
+        repositories {
+            mavenLocal()
+            mavenCentral()
+        }
+    }
+    repositories {
+        mavenLocal()
+		mavenCentral()
+    }
+	
+    apply plugin: 'jacoco'
+    apply plugin: 'java'
+    apply plugin: 'maven'
+    apply plugin: 'maven-publish'
+    apply plugin: 'eclipse'
+    apply plugin: 'idea'
+    apply plugin: 'com.jfrog.artifactory'
+
+    version = '1.0.0-SNAPSHOT'
+
+    sourceCompatibility = 1.8
+    targetCompatibility = 1.8
+
+    sourceSets {
+        main {
+            java.outputDir = file('build/classes/main')
+            output.resourcesDir = file('build/classes/main')
+        }
+        test {
+            java.outputDir = file('build/classes/test')
+            output.resourcesDir = file('build/classes/test')
+        }
+    }
+
+    eclipse {
+
+        classpath {
+            downloadSources = true
+
+            // The following prevents eclipse from creating its standard "bin directory".
+            // This is desired b/c when we exec gradle build, we dont want any class files lingering
+            defaultOutputDir = file('build/classes/all')
+        }
+
+    }
+
+    test {
+        testLogging {
+            events "PASSED", "STARTED", "FAILED", "SKIPPED"
+        }
+    }
+
+	jacoco {
+        toolVersion = "0.8.0"
+    }
+
+    jacocoTestReport {
+        reports {
+            xml {
+                enabled true
+            }
+
+            html {
+                enabled true
+            }
+        }
+    }
+
+    task myJavadocs(type: Javadoc) {
+        source = sourceSets.main.allJava
+        classpath = configurations.compile
+    }
+
+    task sourcesJar(type: Jar) {
+        from sourceSets.main.allSource
+        classifier = 'source'
+    }
+
+    artifacts {
+        archives sourcesJar
+    }
+    publishing {
+        publications {
+            mavenJava(MavenPublication) {
+                from components.java
+                artifact sourcesJar
+            }
+        }
+    }
+ 
+}
+
+ext {
+    commons_collection_version = "3.2.2"
+    commons_lang_version = "2.6"
+    lucene_core_version = "7.3.1"
+    junit_version = "4.12"
+    junit_params_version = "1.0.4"
+    commons_io_version = "2.5"
+    gson_version = "2.7"
+    logback_version = "1.2.3"
+
+    devMode = true
+}
+
+task printVersion {
+    println "Current version for this project is " + subprojects.version.iterator().next()
+}
+
