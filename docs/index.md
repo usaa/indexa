@@ -30,9 +30,9 @@ Providing a means of allowing developers to gather dependency/metadata informati
 
 # How do I get started?
 
-* Step 1: Setup the [Graph](../indexa-graph)
-* Step 2: Setup the [Mapper](../indexa-mapper)
-* Step 3: Run the [Mapper](../indexa-mapper)
+* Step 1: Setup the [Graph](https://github.com/usaa/indexa/tree/master/indexa-graph) 
+* Step 2: Setup the [Mapper](https://github.com/usaa/indexa/tree/master/indexa-mapper)
+* Step 3: Run the [Mapper](https://github.com/usaa/indexa/tree/master/indexa-mapper)
 
 # Indexa Components
 
