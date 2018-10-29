@@ -3,7 +3,7 @@ title: Indexa Documentation
 ---
 # Hitchhiker's Guide to The Indexa
 
-## Table Of Contents :bookmark_tabs:
+## Table Of Contents
 
 * [What is the Indexa?](#what-is-the-indexa)
 * [How does the Indexa make your life easier?](#how-does-the-indexa-make-your-life-easier)
